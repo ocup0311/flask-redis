@@ -42,8 +42,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          platforms: linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/arm64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6,linux/mips64
-          # ,linux/mips64le
-          # ,linux/riscv64
+          platforms: linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/amd64/v4,linux/arm64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6
+          # error: linux/mips64,linux/mips64le,linux/riscv64
           push: true
           tags: ocup0311/flask-redis-demo:latest
