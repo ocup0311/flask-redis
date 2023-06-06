@@ -29,7 +29,7 @@ jobs:
         run: docker image ls
 
       - name: Dockerhub login
-        run: docker login -u ${{DOCKERHUB_USERNAME}} -p ${{DOCKERHUB_TOKEN}}
+        run: docker login -u ${{secrets.DOCKERHUB_USERNAME}} -p ${{secrets.DOCKERHUB_TOKEN}}
 
       - name: Push to dockerhub
         run: docker image push ocup0311/flask-redis-demo:latest
