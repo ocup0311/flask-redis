@@ -13,6 +13,6 @@ WORKDIR /src
 
 ENV FLASK=app.py
 
-EXPOSE 5000
+EXPOSE 5566
 
 CMD ["flask", "run", "-h", "0.0.0.0"]
