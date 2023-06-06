@@ -22,6 +22,9 @@ jobs:
           echo "FILE LIST:"
           ls ${{ github.workspace }}
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v2
