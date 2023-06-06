@@ -23,6 +23,7 @@ jobs:
           ls ${{ github.workspace }}
 
       - name: Set up Docker Buildx
+        id: buildx
         uses: docker/setup-buildx-action@v2
 
       - name: Login to Docker Hub
@@ -38,3 +39,6 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ocup0311/flask-redis-demo:latest
+
+      - name: Available paltforms
+        run: echo "${{ steps.buildx.outputs.platforms }}"
