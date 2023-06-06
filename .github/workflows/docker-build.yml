@@ -22,17 +22,11 @@ jobs:
           echo "FILE LIST:"
           ls ${{ github.workspace }}
 
+      - name: Dockerhub login
+        run: docker login -u ${{secrets.DOCKERHUB_USERNAME}} -p ${{secrets.DOCKERHUB_TOKEN}}
+
       - name: Docker image build
         run: |
           docker buildx create --name tmp_builder --use
           docker buildx ls
           docker buildx build --push --platform linux/amd64,linux/arm64 -t ocup0311/flask-redis-demo:latest .
-
-      - name: Image List
-        run: docker image ls
-
-      - name: Dockerhub login
-        run: docker login -u ${{secrets.DOCKERHUB_USERNAME}} -p ${{secrets.DOCKERHUB_TOKEN}}
-
-      - name: Push to dockerhub
-        run: docker image push ocup0311/flask-redis-demo:latest
